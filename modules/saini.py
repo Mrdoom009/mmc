@@ -50,7 +50,13 @@ def pull_run(work, cmds):
         print("Waiting for tasks to complete")
         fut = executor.map(exec,cmds)
         
-async def aio(url,name):
+async def aio(url, name, headers=None):
+    if headers is None:
+        headers = {
+            "Referer": "https://player.akamai.net.in",
+            "User-Agent": "Mozilla/5.0",
+            "Accept": "application/pdf"
+        }
     k = f'{name}.pdf'
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as resp:
@@ -61,7 +67,13 @@ async def aio(url,name):
     return k
 
 
-async def download(url,name):
+async def download(url, name, headers=None):
+    if headers is None:
+        headers = {
+            "Referer": "https://player.akamai.net.in",
+            "User-Agent": "Mozilla/5.0",
+            "Accept": "application/pdf"
+        }
     ka = f'{name}.pdf'
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as resp:
