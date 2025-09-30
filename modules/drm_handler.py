@@ -423,13 +423,13 @@ async def drm_handler(bot: Client, m: Message):
                         continue    
   
                 elif "pdf" in url:
-                    if "cwmediabkt99" in url:
-                        max_retries = 15  # Define the maximum number of retries
-                        retry_delay = 4  # Delay between retries in seconds
-                        success = False  # To track whether the download was successful
-                        failure_msgs = []  # To keep track of failure messages
+                    #if "cwmediabkt99" in url:
+                        #max_retries = 15  # Define the maximum number of retries
+                        #retry_delay = 4  # Delay between retries in seconds
+                        #success = False  # To track whether the download was successful
+                        #failure_msgs = []  # To keep track of failure messages
                         
-                        for attempt in range(max_retries):
+                        #for attempt in range(max_retries):
                             try:
                                 await asyncio.sleep(retry_delay)
                                 url = url.replace(" ", "%20")
@@ -460,7 +460,7 @@ async def drm_handler(bot: Client, m: Message):
                             
                     else:
                         try:
-                            cmd = f'wget --header "Referer: https://player.akamai.net.in" -O "{namef}.pdf" "{url}"'
+                            cmd = f'yt-dlp --add-header "Referer: https://player.akamai.net.in" -o "{namef}.pdf" "{url}"'
                             download_cmd = f"{cmd}"
                             os.system(download_cmd)
                             copy = await bot.send_document(chat_id=channel_id, document=f'{namef}.pdf', caption=cc1)
