@@ -348,7 +348,7 @@ async def drm_handler(bot: Client, m: Message):
                 else:
                     if topic == "/yes":
                         if caption == "/cc1":
-                            cc = f'{v_name}'
+                            cc = f'<blockquote>{str(count).zfill(3)}</blockquote>\n{v_name}'
                             cc1 = f' '
                             cczip = f'[📁]Zip Id : {str(count).zfill(3)}\n**Zip Title :** `{v_name}.zip`\n<blockquote><b>Batch Name : {b_name}\nTopic Name : {t_name}</b></blockquote>\n\n**Extracted by➤**{CR}\n'
                             ccimg = f'[🖼️]Img Id : {str(count).zfill(3)}\n**Img Title :** `{v_name}.jpg`\n<blockquote><b>Batch Name : {b_name}\nTopic Name : {t_name}</b></blockquote>\n\n**Extracted by➤**{CR}\n'
@@ -371,7 +371,7 @@ async def drm_handler(bot: Client, m: Message):
                             cchtml = f'<blockquote><b>⋅ ─ {t_name} ─ ⋅</b></blockquote>\n<b>{str(count).zfill(3)}.</b> {v_name} .html'
                     else:
                         if caption == "/cc1":
-                            cc = f'{name1}'
+                            cc = f'<blockquote>{str(count).zfill(3)}</blockquote>\n{name1}'
                             cc1 = f' '
                             cczip = f'[📁]Zip Id : {str(count).zfill(3)}\n**Zip Title :** `{name1}.zip`\n<blockquote><b>Batch Name :</b> {b_name}</blockquote>\n\n**Extracted by➤**{CR}\n' 
                             ccimg = f'[🖼️]Img Id : {str(count).zfill(3)}\n**Img Title :** `{name1}.jpg`\n<blockquote><b>Batch Name :</b> {b_name}</blockquote>\n\n**Extracted by➤**{CR}\n'
