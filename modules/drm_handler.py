@@ -434,7 +434,8 @@ async def drm_handler(bot: Client, m: Message):
                                 await asyncio.sleep(retry_delay)
                                 url = url.replace(" ", "%20")
                                 scraper = cloudscraper.create_scraper()
-                                response = scraper.get(url)
+                                headers = { "Referer": "https://player.akamai.net.in", "User-Agent": "Mozilla/5.0", "Accept": "application/pdf" }
+                                response = scraper.get(url, headers=headers)
 
                                 if response.status_code == 200:
                                     with open(f'{namef}.pdf', 'wb') as file:
