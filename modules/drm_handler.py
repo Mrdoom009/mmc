@@ -459,8 +459,8 @@ async def drm_handler(bot: Client, m: Message):
                             
                     else:
                         try:
-                            cmd = f'aria2c --header "Referer: https://player.akamai.net.in" -o "{namef}.pdf" "{url}"'
-                            download_cmd = f"{cmd} -R 25 --fragment-retries 25"
+                            cmd = f'wget --header "Referer: https://player.akamai.net.in" -O "{namef}.pdf" "{url}"'
+                            download_cmd = f"{cmd}"
                             os.system(download_cmd)
                             copy = await bot.send_document(chat_id=channel_id, document=f'{namef}.pdf', caption=cc1)
                             count += 1
