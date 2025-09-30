@@ -459,7 +459,7 @@ async def drm_handler(bot: Client, m: Message):
                             
                     else:
                         try:
-                            cmd = f'yt-dlp --add-header "Referer: https://player.akamai.net.in" -o "{namef}.pdf" "{url}"'
+                            cmd = f'wget --header "Referer: https://player.akamai.net.in" -O "{namef}.pdf" "{url}"'
                             download_cmd = f"{cmd} -R 25 --fragment-retries 25"
                             os.system(download_cmd)
                             copy = await bot.send_document(chat_id=channel_id, document=f'{namef}.pdf', caption=cc1)
